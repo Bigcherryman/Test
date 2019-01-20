@@ -6,7 +6,7 @@ class Test
 
     abort "Файл не найден!" unless File.exist?(questions_path)
 
-    @questions = File.readlines(questions_path, encoding: 'UTF-8')
+    @questions = File.readlines(questions_path, chomp: true)
 
     @points = 0
 
@@ -18,7 +18,7 @@ class Test
   end
 
   def next_question
-    puts @questions[@question].chomp
+    puts @questions[@question]
 
     user_input = nil
     until user_input == "yes" || user_input == "maybe" || user_input == "no"
